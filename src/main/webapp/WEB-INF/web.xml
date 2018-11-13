@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+  <display-name>course-project</display-name>
+ 
+ 	<listener> <!--  whenever any request comes to server it attaches a new thread to request  -->
+ 		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+ 	</listener>
+ 	<listener>
+ 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+ 	</listener>
+ 	
+ 	<context-param>
+ 		<param-name>contextConfigLocation</param-name>
+ 		<param-value>/WEB-INF/spring/applicationContext.xml</param-value> <!-- deals with bean config not involved into mvc  -->
+ 	</context-param>
+ 
+ 	<servlet>
+ 		<servlet-name>dispatcher</servlet-name>
+ 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class> <!--  finds for config file -->
+ 		<init-param>
+ 			<param-name>contextConfigLocation</param-name>
+ 			<param-value>/WEB-INF/spring/dispatcher-servlet.xml</param-value> <!-- deals with mvc config -->
+ 		</init-param>
+ 		<load-on-startup>1</load-on-startup>
+ 		<multipart-config></multipart-config> <!-- for file upload -->
+ 	</servlet>	
+ 	
+ 	<servlet-mapping>
+ 		<servlet-name>dispatcher</servlet-name>
+ 		<url-pattern>/</url-pattern>
+ 	</servlet-mapping>
+ 	
+ 	
+ 	
+</web-app>

@@ -1,0 +1,8 @@
+.form-group span label{
+	display: inline;
+	font-weight: normal;
+	padding: 0px 10px;
+}
+.error{
+	color:red;
+}
